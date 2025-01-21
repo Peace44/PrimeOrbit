@@ -16,8 +16,7 @@
 5. [Usage](#usage)  
 6. [Running Tests](#running-tests)  
 7. [Example Inputs/Outputs](#example-inputsoutputs)  
-8. [License](#license)  
-9. [Contact](#contact)
+8. [Contact](#contact)
 
 ---
 
@@ -149,24 +148,17 @@ We use [Google Test](https://github.com/google/googletest) for unit tests. After
 
 ---
 
-## Example Inputs/Outputs (in the `build/src/` folder)   
-**Example 1**
+## Example Input/Output
+
+- In `build/src/` run:
 ```bash
-./prime_app 2 16 999983
+./prime_app 2 16 999983 -5 abc 18446744073709551615 18446744073709551557
 ```
 **Output**  
 ```
 2 is prime!
 16 is not prime!
 999983 is prime!
-```
-
-**Example 2**  
-```bash
-./prime_app -5 abc 18446744073709551615 18446744073709551557
-```
-**Output**  
-```
 Error: Invalid or Out-Of-Range input for argument "-5"
 Error: Invalid or Out-Of-Range input for argument "abc"
 18446744073709551615 is not prime!
