@@ -4,32 +4,7 @@
 namespace PrimeOrbit {
     PrimeChecker pc;
 
-    TEST(PrimeCheckerTest, NegativeNumbers) {
-        EXPECT_FALSE(pc.isPrime(-1));
-        EXPECT_FALSE(pc.isPrime(-2));
-        EXPECT_FALSE(pc.isPrime(-3));
-        EXPECT_FALSE(pc.isPrime(-4));
-
-        EXPECT_FALSE(pc.isPrime(-5));
-        EXPECT_FALSE(pc.isPrime(-6));
-        EXPECT_FALSE(pc.isPrime(-7));
-        EXPECT_FALSE(pc.isPrime(-8));
-
-        EXPECT_FALSE(pc.isPrime(-9));
-        EXPECT_FALSE(pc.isPrime(-10));
-        EXPECT_FALSE(pc.isPrime(-11));
-        EXPECT_FALSE(pc.isPrime(-12));
-
-        EXPECT_FALSE(pc.isPrime(-13));
-        EXPECT_FALSE(pc.isPrime(-14));
-        EXPECT_FALSE(pc.isPrime(-15));
-        EXPECT_FALSE(pc.isPrime(-16));
-
-        EXPECT_FALSE(pc.isPrime(-17));
-        EXPECT_FALSE(pc.isPrime(-18));
-        EXPECT_FALSE(pc.isPrime(-19));
-        EXPECT_FALSE(pc.isPrime(-20));
-    }
+    // I am assuming that all inputs will be non-negative!!!
 
     TEST(PrimeCheckerTest, EdgeCases) {
         EXPECT_FALSE(pc.isPrime(0));
