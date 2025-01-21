@@ -15,8 +15,9 @@
 4. [Build Instructions](#build-instructions)  
 5. [Usage](#usage)  
 6. [Running Tests](#running-tests)  
-7. [Example Inputs/Outputs](#example-inputoutput)  
-8. [Contact](#contact)
+7. [Example Inputs/Outputs](#example-inputoutput)
+8. [Future Enhancements](#future-enhancements)
+9. [Contact](#contact)
 
 ---
 
@@ -165,6 +166,18 @@ Error: Invalid or Out-Of-Range input for argument "abc"
 18446744073709551615 is not prime!
 18446744073709551557 is prime!
 ```
+
+---
+
+## Future Enhancements
+
+While the current implementation efficiently checks the primality of 64-bit integers, a potential future challenge is to extend the application to handle larger integers (up to 128 bits). This would involve:
+
+1. Implementing the **deterministic Miller-Rabin primality test** for numbers in the range `2^64 ≤ number < 2^128`.
+2. Updating the CLI to support extended input formats or files for very large integers.
+3. Expanding test coverage to verify correctness with 128-bit inputs.
+
+This enhancement would showcase further algorithmic optimization and scalability in handling large numerical computations.
 
 ---
 
