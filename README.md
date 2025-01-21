@@ -15,15 +15,16 @@
 4. [Build Instructions](#build-instructions)  
 5. [Usage](#usage)  
 6. [Running Tests](#running-tests)  
-7. [Example Inputs/Outputs](#example-inputsoutputs)  
+7. [Example Inputs/Outputs](#example-inputoutput)  
 8. [Contact](#contact)
 
 ---
 
 ## Overview
 
-This project was created as part of a software engineering internship recruitment exercise. The primary goals were to:
+This project was created as part of a software engineering internship recruitment exercise. 
 
+The primary goals were to:
 1. Implement a prime checking library in modern C++ (using OOP principles).  
 2. Provide a command-line interface (CLI) that accepts multiple numeric inputs.  
 3. Use CMake for building both the main executable and the unit tests.  
