@@ -88,7 +88,7 @@ You will need:
 
 1. **Clone or Download the Repository**  
    ```bash
-   git clone https://github.com/Peace44/PrimeOrbit.git
+   git clone --recursive https://github.com/Peace44/PrimeOrbit.git
    cd PrimeOrbit
    ```
 2. **Create and Enter a Build Directory**  
