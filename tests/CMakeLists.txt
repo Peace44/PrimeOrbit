@@ -1,5 +1,3 @@
-# tests/CMakeLists.txt
-
 # Disable installation targets for Google Test
 set(INSTALL_GTEST OFF CACHE BOOL "Disable Google Test install" FORCE)
 
@@ -15,8 +13,8 @@ add_executable(test_prime_checker test_prime_checker.cpp)
 #   2. Google Test libraries
 target_link_libraries(test_prime_checker
     PRIVATE
-        gtest_main
-        # prime_checker (I'll add this once the library is created)
+        gtest_main      # from googletest
+        prime_checker   # my library target
 )
 
 # Set C++ standard for tests
@@ -26,4 +24,4 @@ set_target_properties(test_prime_checker PROPERTIES
 )
 
 # Tell CTest to run the test executable
-add_test(NAME PrimeCheckerTest COMMAND test_prime_checker)
+add_test(NAME PrimeCheckerTest COMMAND test_prime_checker --gtest_print_time=1 --gtest_output=xml:report.xml)

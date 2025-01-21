@@ -1,5 +1,5 @@
 add_library(prime_checker
-    # prime_checker.cpp
+    prime_checker.cpp
 )
 
 # Making the library's header files available
