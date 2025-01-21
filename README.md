@@ -58,8 +58,6 @@ This project was created as part of a software engineering internship recruitmen
 
 ## Directory Structure
 
-A typical layout of the project:
-
 ```
 PrimeOrbit/
 ├── CMakeLists.txt              # Top-level CMake configuration
@@ -90,7 +88,7 @@ You will need:
 
 1. **Clone or Download the Repository**  
    ```bash
-   git clone https://github.com/YourUsername/PrimeOrbit.git
+   git clone https://github.com/Peace44/PrimeOrbit.git
    cd PrimeOrbit
    ```
 2. **Create and Enter a Build Directory**  
@@ -103,7 +101,7 @@ You will need:
    ```
 4. **Build the Project**  
    ```bash
-   cmake --build .
+   make
    ```
    - This compiles both the **prime_checker** library and the **prime_app** executable.  
    - By default, build artifacts will be placed in the `build` directory.
@@ -112,16 +110,15 @@ You will need:
 
 ## Usage
 
-After a successful build, make sure you're working inside the `build/` directory:
+After a successful build:
 
-1. **Locate the Executable**  
-   - `prime_app` (or `prime_app.exe` on Windows), found in `build/src/`
+1. **Locate the Main Executable**  
+   - `prime_app` (or `prime_app.exe` on Windows), residing in `build/src/`
 
-2. **Run with One or More Arguments**  
+2. **Run with One or More Arguments** (in the `build/src/` folder)  
    ```bash
-   ./src/prime_app 2 3 4 99999999
+   ./prime_app 2 3 4 99999999
    ```
-   - Replace the path with your actual build location if different.
 
 3. **Sample Output**  
    - For each argument, the program prints whether it is prime or not.  
@@ -133,7 +130,7 @@ After a successful build, make sure you're working inside the `build/` directory
 
 We use [Google Test](https://github.com/google/googletest) for unit tests. After building, you can run:
 
-1. **CTest** (in your `build` folder)  
+1. **CTest** (in the `build` folder)  
    ```bash
    ctest
    ```
@@ -142,7 +139,7 @@ We use [Google Test](https://github.com/google/googletest) for unit tests. After
    ctest --verbose
    ```
 
-2. **Direct Execution** (in your `build/tests/` folder)  
+2. **Direct Execution** (in the `build/tests` folder)  
    ```bash
    ./test_prime_checker
    ```
@@ -152,11 +149,10 @@ We use [Google Test](https://github.com/google/googletest) for unit tests. After
 
 ---
 
-## Example Inputs/Outputs
-
-**Example 1**  
+## Example Inputs/Outputs (in the `build/src/` folder)   
+**Example 1**
 ```bash
-./src/prime_app 2 16 999983
+./prime_app 2 16 999983
 ```
 **Output**  
 ```
@@ -167,13 +163,14 @@ We use [Google Test](https://github.com/google/googletest) for unit tests. After
 
 **Example 2**  
 ```bash
-./src/prime_app -5 abc 18446744073709551615
+./prime_app -5 abc 18446744073709551615 18446744073709551557
 ```
 **Output**  
 ```
 Error: Invalid or Out-Of-Range input for argument "-5"
 Error: Invalid or Out-Of-Range input for argument "abc"
 18446744073709551615 is not prime!
+18446744073709551557 is prime!
 ```
 
 ---
