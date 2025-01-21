@@ -184,6 +184,7 @@ This enhancement would showcase further algorithmic optimization and scalability
 ## Contact
 
 **Author**: Iragukujije Peace BONERABOSE
+
 **Email**: [iragukujije.peace.bonerabose@gmail.com](mailto:iragukujije.peace.bonerabose@gmail.com)
 
 For questions, suggestions, or contributions, feel free to open an issue or submit a pull request.
