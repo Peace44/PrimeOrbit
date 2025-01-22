@@ -1,8 +1,8 @@
 # PrimeOrbit
 
-**PrimeOrbit** is a simple C++ application to check the primality of one or more 64-bit integers. It demonstrates:
+**PrimeOrbit** is a straightforward C++ application designed to determine the primality of one or more 64-bit integers and compute their prime factor decomposition. It demonstrates:
 
-- **Object-Oriented Design** (via a `PrimeChecker` class)
+- **Object-Oriented Design** (via `PrimeChecker` and `PrimeFactorizer` classes)
 - **Modern C++** usage (C++17 or newer)
 - **CMake**-based build system
 - **Automated testing** using Google Test
@@ -26,7 +26,7 @@
 This project was created as part of a software engineering internship recruitment exercise. 
 
 The primary goals were to:
-1. Implement a prime checking library in modern C++ (using OOP principles).  
+1. Implement a modern C++ library (using OOP principles) for prime checking and prime factor decomposition.
 2. Provide a command-line interface (CLI) that accepts multiple numeric inputs.  
 3. Use CMake for building both the main executable and the unit tests.  
 4. Demonstrate clean code structure, test coverage, and good use of version control (Git).
@@ -45,7 +45,7 @@ The primary goals were to:
 
 - **Command-Line Interface (CLI)**  
   - Pass one or more integer arguments.  
-  - Reports if each argument is prime or not.  
+  - Reports if each argument is prime or not, as well as its prime factor decomposition.  
   - Basic validation: handles negative inputs, out-of-range values, etc...
 
 - **Automated Testing**  
@@ -56,7 +56,8 @@ The primary goals were to:
 
 - **CMake Build**  
   - Easily configurable cross-platform builds.  
-  - Separate libraries for **prime_checker** and an executable for `prime_app`.  
+  - Separate libraries for **prime_checker** and **prime_factorizer**.
+  - An executable for `prime_app`.  
   - Isolates test code in a dedicated `tests/` folder.
 
 ---
@@ -111,7 +112,7 @@ You will need:
    ```bash
    make
    ```
-   - This compiles both the **prime_checker** library and the **prime_app** executable.  
+   - This compile the **prime_checker** and **prime_factorizer** libraries, as well as the **prime_app** executable.  
    - By default, build artifacts will be placed in the `build` directory.
 
 ---
@@ -152,6 +153,10 @@ We use [Google Test](https://github.com/google/googletest) for unit tests. After
    ./test_prime_checker
    ```
 
+   ```bash
+   ./test_prime_factorizer
+   ```
+
 **Expected Output**  
 - A summary of test results, indicating which test suites and cases passed/failed.
 
@@ -180,7 +185,7 @@ ERROR: Invalid input "abc"!
 
 ## Future Enhancements
 
-While the current implementation efficiently checks the primality of 64-bit integers, a potential future challenge is to extend the application to handle larger integers (up to 128 bits). This would involve:
+While the current implementation efficiently checks the primality and determines the canonical representation (prime factor decomposition) of 64-bit integers, a potential future challenge is to extend the application to handle larger integers (up to 128 bits). This would involve:
 
 1. Implementing the **deterministic Miller-Rabin primality test** for numbers in the range `2^64 ≤ number < 2^128`.
 2. Updating the CLI to support extended input formats or files for very large integers.
@@ -204,4 +209,4 @@ For questions, suggestions, or contributions, feel free to open an issue or subm
 
 ### Thanks for Checking Out PrimeOrbit!
 
-Please let me know if you have any feedback or if you’d like to suggest new features. Happy prime-checking!
+Please let me know if you have any feedback or if you’d like to suggest new features. Happy prime-checking and prime factor decomposition!
