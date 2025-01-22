@@ -79,7 +79,7 @@ PrimeOrbit/
 │   ├── CMakeLists.txt              # CMake config for building/running tests
 │   ├── googletest/                 # Google Test submodule / cloned repo
 │   └── test_prime_checker.cpp      # Test cases for PrimeChecker
-│   └── test_prime_factorizer.cpp   # Test cases for PrimeChecker
+│   └── test_prime_factorizer.cpp   # Test cases for PrimeFactorizer
 └── README.md                       # This file
 ```
 
