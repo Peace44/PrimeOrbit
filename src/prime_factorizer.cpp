@@ -1,14 +1,14 @@
 #include "prime_factorizer.hpp"
-#include "prime_checker.hpp"
 #include <iostream>
 
 namespace PrimeOrbit {
-    // Constructor
-    PrimeFactorizer::PrimeFactorizer(unsigned long long int num) : number(num) {
-        factorize(number); // Start the recursive factorization with the smallest prime (2)
-    }
 
-    PrimeChecker pc;
+    PrimeFactorizer::PrimeFactorizer() : number(0) {}
+
+    PrimeFactorizer::PrimeFactorizer(unsigned long long int num) : number(num) {
+        if (num < 2) std::cerr << "WARNING: Factorization is not defined for integers < 2 ==> ";
+        else factorize(number);
+    }
 
     unsigned long long int PrimeFactorizer::getFirstPrimeFactor(unsigned long long int num) {
         if (num <= 1) return 1;
@@ -29,7 +29,7 @@ namespace PrimeOrbit {
     void PrimeFactorizer::factorize(unsigned long long int num) {
         unsigned long long int nextFactor = getFirstPrimeFactor(num);
         if (nextFactor < 2) return;
-        
+
         if (!factors.empty() && factors.back().first == nextFactor) factors.back().second++; // if the divisor is already in the factors list, increment the count of the current prime nextFactor
         else factors.emplace_back(nextFactor, 1); // Else add a new prime factor with count 1
 
@@ -39,4 +39,14 @@ namespace PrimeOrbit {
     const std::vector<std::pair<unsigned long long int, int>>& PrimeFactorizer::getFactors() const {
         return factors;
     }
+
+    unsigned long long int PrimeFactorizer::getNumber() const {
+        return number;
+    }
+
+    void PrimeFactorizer::reset() {
+        number = 0;
+        factors.clear();
+    }
+
 }

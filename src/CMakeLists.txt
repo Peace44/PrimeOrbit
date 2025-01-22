@@ -19,8 +19,7 @@ set_target_properties(primeorbit PROPERTIES
 add_executable(prime_app main.cpp)
 
 # Linking the executable with the library
-target_link_libraries(prime_app primeorbit
-)
+target_link_libraries(prime_app primeorbit)
 
 # setting C++ standard for the executable
 set_target_properties(prime_app PROPERTIES

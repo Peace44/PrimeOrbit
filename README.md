@@ -31,6 +31,12 @@ The primary goals were to:
 3. Use CMake for building both the main executable and the unit tests.  
 4. Demonstrate clean code structure, test coverage, and good use of version control (Git).
 
+PrimeOrbit includes **two core classes**:
+- `PrimeChecker`: Determines if a number is prime.
+- `PrimeFactorizer`: Decomposes a number into its prime factors. 
+
+Among these, the **`PrimeFactorizer` class** is the most crucial as it powers both the prime factor decomposition and the primality test indirectly through its methods.
+
 ---
 
 ## Features
@@ -176,24 +182,23 @@ We use [Google Test](https://github.com/google/googletest) for unit tests. After
 ERROR: Input "-5" is out of range for a 64-bit unsigned integer!
 ERROR: Invalid input "abc"!
 18446744073709551615 is not prime! <==> 18446744073709551615 = (3 ^ 1) (5 ^ 1) (17 ^ 1) (257 ^ 1) (641 ^ 1) (65537 ^ 1) (6700417 ^ 1) 
-18446744073709551557 is prime! <==> 18446744073709551557 = (18446744073709551557 ^ 1)
-0 is not prime! <==> 0 doesn't have prime factors!
-1 is not prime! <==> 1 doesn't have prime factors!
+18446744073709551557 is prime! <==> 18446744073709551557 = (18446744073709551557 ^ 1) 
+0 is not prime! <==> WARNING: Factorization is not defined for integers < 2 ==> 0 doesn't have prime factors!
+1 is not prime! <==> WARNING: Factorization is not defined for integers < 2 ==> 1 doesn't have prime factors!
 ```
 
 ---
 
 ## Future Enhancements
 
-While the current implementation efficiently checks the primality and determines the canonical representation (prime factor decomposition) of 64-bit integers, a potential future challenge is to extend the application to handle larger integers (up to 128 bits). This would involve:
+While the current implementation efficiently checks the primality and determines the canonical representation (prime factor decomposition) of 64-bit integers, future work could involve:
 
-1. Implementing the **deterministic Miller-Rabin primality test** for numbers in the range `2^64 ≤ number < 2^128`.
-2. Updating the CLI to support extended input formats or files for very large integers.
-3. Expanding test coverage to verify correctness with 128-bit inputs.
-4. Optimize the 'PrimeFactorizer' class to handle larger numbers efficiently. 
-5. Support more advanced prime factorization techniques.
-
-This enhancement would showcase further algorithmic optimization and scalability in handling large numerical computations.
+1. Extending to handle **128-bit integers**:
+   - Implementing a deterministic **Miller-Rabin primality test** for numbers between `2^64` and `2^128`.
+2. Supporting input files for batch processing.
+3. Expanding test coverage with parameterized tests and performance benchmarks.
+4. Optimizing the `PrimeFactorizer` class for larger numbers using advanced factorization techniques.
+5. Enhancing the CLI with additional options (e.g., `--help`, verbose output).
 
 ---
 
