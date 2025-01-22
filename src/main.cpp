@@ -2,6 +2,7 @@
 #include <string>
 #include <stdexcept>
 #include "prime_checker.hpp"
+#include "prime_factorizer.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -17,7 +18,18 @@ int main(int argc, char* argv[])
             if (argv[i][0] == '-') throw std::out_of_range("Negative input encountered!"); // Negative numbers aren't allowed!!!
             unsigned long long int number = std::stoull(argv[i]); // stoull() throws an exception if the input is invalid or out of range
             bool isNumberPrime = primeChecker.isPrime(number);
-            std::cout << number << (isNumberPrime ? " is prime!" : " is not prime!") << std::endl;
+            std::cout << number << (isNumberPrime ? " is prime!" : " is not prime!") << " <==> ";
+
+            PrimeOrbit::PrimeFactorizer factorizer(number);
+            const auto& factors = factorizer.getFactors();
+
+            std::cout << number;
+            if (factors.empty()) std::cout << " doesn't have prime factors!\n";
+            else {
+                std::cout << " = ";
+                for (const auto& factor: factors) std::cout << "(" << factor.first << " ^ " << factor.second << ") ";
+                std::cout << std::endl;
+            }
         } catch (const std::invalid_argument& e) {
             std::cerr << "ERROR: Invalid input \"" << argv[i] << "\"!\n";
         } catch (const std::out_of_range& e) {

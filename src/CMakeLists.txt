@@ -1,15 +1,16 @@
-add_library(prime_checker
+add_library(primeorbit
     prime_checker.cpp
+    prime_factorizer.cpp
 )
 
 # Making the library's header files available
-target_include_directories(prime_checker
+target_include_directories(primeorbit
     PUBLIC
         ${CMAKE_CURRENT_LIST_DIR}/../include
 )
 
 # setting C++ standard
-set_target_properties(prime_checker PROPERTIES
+set_target_properties(primeorbit PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
@@ -18,9 +19,7 @@ set_target_properties(prime_checker PROPERTIES
 add_executable(prime_app main.cpp)
 
 # Linking the executable with the library
-target_link_libraries(prime_app
-    PRIVATE
-        prime_checker
+target_link_libraries(prime_app primeorbit
 )
 
 # setting C++ standard for the executable
