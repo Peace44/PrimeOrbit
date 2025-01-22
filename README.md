@@ -39,6 +39,10 @@ The primary goals were to:
   - Uses an **efficient** 6k ± 1 strategy for checking primality.  
   - Supports **64-bit** integers (`unsigned long long int`).
 
+- **Prime Factorization**  
+  - Decomposes a number into its prime factors (with multiplicity).  
+  - Supports **64-bit** integers (`unsigned long long int`).  
+
 - **Command-Line Interface (CLI)**  
   - Pass one or more integer arguments.  
   - Reports if each argument is prime or not.  
@@ -61,18 +65,21 @@ The primary goals were to:
 
 ```
 PrimeOrbit/
-├── CMakeLists.txt              # Top-level CMake configuration
+├── CMakeLists.txt                  # Top-level CMake configuration
 ├── include/
-│   └── prime_checker.hpp       # Declaration of the PrimeChecker class
+│   └── prime_checker.hpp           # Declaration of the PrimeChecker class
+│   └── prime_factorizer.hpp        # Declaration of the PrimeFactorizer class
 ├── src/
-│   ├── CMakeLists.txt          # CMake config for library + main app
-│   ├── main.cpp                # Main entry point for prime_app
-│   └── prime_checker.cpp       # Implementation of the PrimeChecker class
+│   ├── CMakeLists.txt              # CMake config for library + main app
+│   ├── main.cpp                    # Main entry point for prime_app
+│   └── prime_checker.cpp           # Implementation of the PrimeChecker class
+│   └── prime_factorizer.cpp        # Implementation of the PrimeFactorizer class
 ├── tests/
-│   ├── CMakeLists.txt          # CMake config for building/running tests
-│   ├── googletest/             # Google Test submodule / cloned repo
-│   └── test_prime_checker.cpp  # Test cases for PrimeChecker
-└── README.md                   # This file
+│   ├── CMakeLists.txt              # CMake config for building/running tests
+│   ├── googletest/                 # Google Test submodule / cloned repo
+│   └── test_prime_checker.cpp      # Test cases for PrimeChecker
+│   └── test_prime_factorizer.cpp   # Test cases for PrimeChecker
+└── README.md                       # This file
 ```
 
 ---
@@ -122,7 +129,7 @@ After a successful build:
    ```
 
 3. **Sample Output**  
-   - For each argument, the program prints whether it is prime or not.  
+   - For each argument, the program prints whether the argument is prime or not, as well as its prime factor decomposition.  
    - If an argument is invalid (negative or out-of-range), you’ll see an error message.
 
 ---
@@ -154,17 +161,19 @@ We use [Google Test](https://github.com/google/googletest) for unit tests. After
 
 - In `build/src/` run:
 ```bash
-./prime_app 2 16 999983 -5 abc 18446744073709551615 18446744073709551557
+./prime_app 2 16 999983 -5 abc 18446744073709551615 18446744073709551557 0 1
 ```
 **Output**  
 ```
-2 is prime!
-16 is not prime!
-999983 is prime!
-Error: Invalid or Out-Of-Range input for argument "-5"
-Error: Invalid or Out-Of-Range input for argument "abc"
-18446744073709551615 is not prime!
-18446744073709551557 is prime!
+2 is prime! <==> 2 = (2 ^ 1) 
+16 is not prime! <==> 16 = (2 ^ 4) 
+999983 is prime! <==> 999983 = (999983 ^ 1) 
+ERROR: Input "-5" is out of range for a 64-bit unsigned integer!
+ERROR: Invalid input "abc"!
+18446744073709551615 is not prime! <==> 18446744073709551615 = (3 ^ 1) (5 ^ 1) (17 ^ 1) (257 ^ 1) (641 ^ 1) (65537 ^ 1) (6700417 ^ 1) 
+18446744073709551557 is prime! <==> 18446744073709551557 = (18446744073709551557 ^ 1)
+0 is not prime! <==> 0 doesn't have prime factors!
+1 is not prime! <==> 1 doesn't have prime factors!
 ```
 
 ---
@@ -176,6 +185,8 @@ While the current implementation efficiently checks the primality of 64-bit inte
 1. Implementing the **deterministic Miller-Rabin primality test** for numbers in the range `2^64 ≤ number < 2^128`.
 2. Updating the CLI to support extended input formats or files for very large integers.
 3. Expanding test coverage to verify correctness with 128-bit inputs.
+4. Optimize the 'PrimeFactorizer' class to handle larger numbers efficiently. 
+5. Support more advanced prime factorization techniques.
 
 This enhancement would showcase further algorithmic optimization and scalability in handling large numerical computations.
 
